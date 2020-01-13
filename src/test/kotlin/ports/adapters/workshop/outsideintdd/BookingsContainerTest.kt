@@ -2,18 +2,18 @@ package ports.adapters.workshop.outsideintdd
 
 import com.google.gson.Gson
 import io.restassured.RestAssured
-import org.junit.jupiter.api.Test
 import io.restassured.module.kotlin.extensions.Given
 import io.restassured.module.kotlin.extensions.Then
 import io.restassured.module.kotlin.extensions.When
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.http.HttpStatus
 import org.springframework.test.annotation.DirtiesContext
-import ports.adapters.workshop.outsideintdd.domain.Booking
-import ports.adapters.workshop.outsideintdd.domain.Price
+import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
+import ports.adapters.workshop.outsideintdd.bookings.domain.Price
 
 @SpringBootTest(
         classes = [OutsideInTddApplication::class],

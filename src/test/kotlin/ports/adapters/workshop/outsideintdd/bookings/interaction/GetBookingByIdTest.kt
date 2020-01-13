@@ -1,4 +1,4 @@
-package ports.adapters.workshop.outsideintdd.interaction
+package ports.adapters.workshop.outsideintdd.bookings.interaction
 
 import io.mockk.mockk
 import io.mockk.verify

@@ -1,4 +1,4 @@
-package ports.adapters.workshop.outsideintdd.api
+package ports.adapters.workshop.outsideintdd.bookings.api
 
 import com.google.gson.Gson
 import io.mockk.every
@@ -6,10 +6,9 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import ports.adapters.workshop.outsideintdd.bookings.api.BookingsController
-import ports.adapters.workshop.outsideintdd.domain.Booking
-import ports.adapters.workshop.outsideintdd.domain.Price
-import ports.adapters.workshop.outsideintdd.interaction.GetBookingById
+import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
+import ports.adapters.workshop.outsideintdd.bookings.domain.Price
+import ports.adapters.workshop.outsideintdd.bookings.interaction.GetBookingById
 
 internal class BookingsControllerTest {
     @Test
