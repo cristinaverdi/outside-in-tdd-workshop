@@ -1,4 +1,4 @@
-package ports.adapters.workshop.outsideintdd.bookings.http
+package ports.adapters.workshop.outsideintdd.bookings.infrastructure.http
 
 import com.google.gson.Gson
 import org.springframework.web.bind.annotation.GetMapping
