@@ -1,5 +1,6 @@
 package ports.adapters.workshop.outsideintdd
 
+import com.google.gson.Gson
 import io.restassured.RestAssured
 import org.junit.jupiter.api.Test
 import io.restassured.module.kotlin.extensions.Given
@@ -11,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.http.HttpStatus
 import org.springframework.test.annotation.DirtiesContext
+import ports.adapters.workshop.outsideintdd.domain.Booking
+import ports.adapters.workshop.outsideintdd.domain.Price
 
 @SpringBootTest(
         classes = [OutsideInTddApplication::class],
@@ -34,16 +37,17 @@ class BookingsContainerTest {
         } When {
             get("/api/v1/bookings/{id}")
         } Then {
+            val id = "1234"
+            val startDate = "04-01-2019T09:00"
+            val vehicleId = "123"
+            val userId = "9802"
+            val value = 30
+            val currency = "EUR"
+            val price = Price(value, currency)
+            val booking = Booking(id, startDate, vehicleId, userId, price)
+
+            body(equalTo(Gson().toJson(booking)))
             statusCode(HttpStatus.OK.value())
-            val expectedBody = """
-               id: "1239",
-               startDate: "04-01-2019T09:00", 
-               vehicleId: "123",
-               userId: "9802"
-               price: "30",
-               currency: "EUR"
-            """
-            body(equalTo(expectedBody))
         }
     }
 }
