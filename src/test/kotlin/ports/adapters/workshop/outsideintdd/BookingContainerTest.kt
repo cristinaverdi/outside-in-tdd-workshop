@@ -44,10 +44,7 @@ class BookingContainerTest {
             val startDate = Instant.now()
             val vehicleId = "123"
             val userId = "9802"
-            val value = 30
-            val currency = "EUR"
-            val price = Price(value, currency)
-            val booking = Booking(id, startDate, vehicleId, userId, price)
+            val booking = Booking(id, startDate, vehicleId, userId)
 
             body(equalTo(Gson().toJson(booking)))
             statusCode(HttpStatus.OK.value())

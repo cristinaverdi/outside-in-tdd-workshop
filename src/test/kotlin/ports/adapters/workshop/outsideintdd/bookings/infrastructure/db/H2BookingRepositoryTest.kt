@@ -7,7 +7,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.catchThrowable
 import org.junit.jupiter.api.Test
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
-import ports.adapters.workshop.outsideintdd.bookings.domain.Price
 import java.time.Instant
 import java.util.*
 
@@ -50,7 +49,7 @@ internal class H2BookingRepositoryTest {
     fun `keeps domain booking unmodified`() {
         val id = "789"
         val now = Instant.now()
-        val expectedBooking = Booking(id, now, "12", "13", Price(30, "EUR"))
+        val expectedBooking = Booking(id, now, "12", "13")
         val jpaBooking = JpaBooking(id, now, "12", "13")
 
         val bookingsSpringDataRepository = mockk<BookingsSpringDataRepository>(relaxed = true)

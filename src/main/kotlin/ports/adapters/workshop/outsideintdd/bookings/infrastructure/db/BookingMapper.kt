@@ -6,7 +6,8 @@ import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 @Component
 class BookingMapper {
     fun toDomain(jpaBooking: JpaBooking): Booking {
-        throw UnsupportedOperationException()
+        val (id,startDate,vehicleId,userId) = jpaBooking
+        return Booking(id,startDate,vehicleId,userId)
     }
 
 }

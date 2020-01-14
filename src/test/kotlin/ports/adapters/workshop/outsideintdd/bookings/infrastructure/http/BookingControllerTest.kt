@@ -7,7 +7,6 @@ import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
-import ports.adapters.workshop.outsideintdd.bookings.domain.Price
 import ports.adapters.workshop.outsideintdd.bookings.interaction.GetBookingById
 import java.time.Instant
 
@@ -28,7 +27,7 @@ internal class BookingControllerTest {
         val getBookingById = mockk<GetBookingById>()
         val bookingsController = BookingController(getBookingById)
         val id = "1234"
-        val booking = Booking(id, Instant.now(), "3345", "00002", Price(30, "EUR"))
+        val booking = Booking(id, Instant.now(), "3345", "00002")
 
         every { getBookingById.execute(id) } returns booking
 

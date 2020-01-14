@@ -13,4 +13,9 @@ class JpaBooking(
         val startDate: Instant,
         val vehicleId: String,
         val userId: String
-)
+) {
+    operator fun component1(): String = id
+    operator fun component2(): Instant = startDate
+    operator fun component3(): String = vehicleId
+    operator fun component4(): String = userId
+}
