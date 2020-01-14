@@ -18,9 +18,7 @@ internal class GetBookingByIdTest {
 
         getBookingById.execute(id)
 
-        verify {
-            bookingsRepository.findById(id)
-        }
+        verify { bookingsRepository.findById(id) }
     }
 
     @Test
@@ -31,9 +29,7 @@ internal class GetBookingByIdTest {
         val id = "1234"
         val expectedBooking = Booking(id, Instant.now(), "", "", Price(30, ""))
 
-        every {
-            bookingsRepository.findById(id)
-        } returns expectedBooking
+        every { bookingsRepository.findById(id) } returns expectedBooking
 
         assertThat(getBookingById.execute(id)).isEqualTo(expectedBooking)
     }

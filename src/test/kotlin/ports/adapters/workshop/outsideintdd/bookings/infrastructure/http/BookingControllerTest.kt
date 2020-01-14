@@ -20,9 +20,7 @@ internal class BookingControllerTest {
 
         bookingsController.getBookingById(id)
 
-        verify {
-            getBookingById.execute(id)
-        }
+        verify { getBookingById.execute(id) }
     }
 
     @Test
@@ -32,9 +30,7 @@ internal class BookingControllerTest {
         val id = "1234"
         val booking = Booking(id, Instant.now(), "3345", "00002", Price(30, "EUR"))
 
-        every {
-            getBookingById.execute(id)
-        } returns booking
+        every { getBookingById.execute(id) } returns booking
 
         val expectedBooking = Gson().toJson(booking)
 

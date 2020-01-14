@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
 import org.springframework.test.annotation.DirtiesContext
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 import ports.adapters.workshop.outsideintdd.bookings.domain.Price
@@ -49,6 +50,7 @@ class BookingContainerTest {
 
             body(equalTo(Gson().toJson(booking)))
             statusCode(HttpStatus.OK.value())
+            contentType(MediaType.APPLICATION_JSON_VALUE)
         }
     }
 

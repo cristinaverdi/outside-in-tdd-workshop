@@ -2,10 +2,7 @@ package ports.adapters.workshop.outsideintdd.bookings.infrastructure.db
 
 import org.springframework.stereotype.Component
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
-import ports.adapters.workshop.outsideintdd.bookings.domain.Price
 import ports.adapters.workshop.outsideintdd.bookings.interaction.BookingRepository
-import java.lang.RuntimeException
-import java.time.Instant
 
 @Component
 class H2BookingRepository(

@@ -8,7 +8,6 @@ import org.assertj.core.api.Assertions.catchThrowable
 import org.junit.jupiter.api.Test
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 import ports.adapters.workshop.outsideintdd.bookings.domain.Price
-import java.lang.RuntimeException
 import java.time.Instant
 import java.util.*
 
