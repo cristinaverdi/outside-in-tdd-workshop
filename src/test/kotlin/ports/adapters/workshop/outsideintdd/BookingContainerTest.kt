@@ -34,12 +34,13 @@ class BookingContainerTest {
 
     @Test
     fun `get booking by Id`() {
+        val id = "1234"
+
         Given {
-            pathParam("id", "1239")
+            pathParam("id", id)
         } When {
             get("/api/v1/bookings/{id}")
         } Then {
-            val id = "1234"
             val startDate = Instant.now()
             val vehicleId = "123"
             val userId = "9802"

@@ -34,7 +34,7 @@ internal class H2BookingRepositoryTest {
         val id = "456"
         val startDate = Instant.now()
         val vehicleId = "567"
-        val jpaBooking = JpaBooking(id, startDate, vehicleId, userId, Price(2, "EUR"))
+        val jpaBooking = JpaBooking(id, startDate, vehicleId, userId)
 
         val bookingSpringDataRepository = mockk<BookingsSpringDataRepository>()
         val h2bookingRepository = H2BookingRepository(bookingSpringDataRepository, bookingMapper)
@@ -51,7 +51,7 @@ internal class H2BookingRepositoryTest {
         val id = "789"
         val now = Instant.now()
         val expectedBooking = Booking(id, now, "12", "13", Price(30, "EUR"))
-        val jpaBooking = JpaBooking(id, now, "12", "13", Price(30, "EUR"))
+        val jpaBooking = JpaBooking(id, now, "12", "13")
 
         val bookingsSpringDataRepository = mockk<BookingsSpringDataRepository>(relaxed = true)
         val bookingMapper = mockk<BookingMapper>()
