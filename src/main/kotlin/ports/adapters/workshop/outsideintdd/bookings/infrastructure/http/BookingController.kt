@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 import ports.adapters.workshop.outsideintdd.bookings.interaction.GetBookingById
 
 @RestController
-class BookingsController(private val getBookingById: GetBookingById) {
+class BookingController(private val getBookingById: GetBookingById) {
 
     @GetMapping("/api/v1/bookings/{id}")
     fun getBookingById(@PathVariable id: String): String {

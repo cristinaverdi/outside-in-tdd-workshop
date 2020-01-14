@@ -2,7 +2,7 @@ package ports.adapters.workshop.outsideintdd.bookings.interaction
 
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 
-interface BookingsRepository {
+interface BookingRepository {
     fun findById(id: String): Booking
 
 }

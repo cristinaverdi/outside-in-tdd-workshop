@@ -9,13 +9,14 @@ import org.junit.jupiter.api.Test
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 import ports.adapters.workshop.outsideintdd.bookings.domain.Price
 import ports.adapters.workshop.outsideintdd.bookings.interaction.GetBookingById
+import java.time.Instant
 
-internal class BookingsControllerTest {
+internal class BookingControllerTest {
     @Test
     fun `delegate get a booking by Id to GetBookingById`() {
         val id = "1234"
         val getBookingById = mockk<GetBookingById>(relaxed = true)
-        val bookingsController = BookingsController(getBookingById)
+        val bookingsController = BookingController(getBookingById)
 
         bookingsController.getBookingById(id)
 
@@ -27,9 +28,9 @@ internal class BookingsControllerTest {
     @Test
     fun `should respond with a booking in json format when requested`() {
         val getBookingById = mockk<GetBookingById>()
-        val bookingsController = BookingsController(getBookingById)
+        val bookingsController = BookingController(getBookingById)
         val id = "1234"
-        val booking = Booking(id, "04-04-20T09:00", "3345", "00002", Price(30, "EUR"))
+        val booking = Booking(id, Instant.now(), "3345", "00002", Price(30, "EUR"))
 
         every {
             getBookingById.execute(id)

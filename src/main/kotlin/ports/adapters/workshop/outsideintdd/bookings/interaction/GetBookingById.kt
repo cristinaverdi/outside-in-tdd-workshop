@@ -2,9 +2,9 @@ package ports.adapters.workshop.outsideintdd.bookings.interaction
 
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 
-class GetBookingById(private val bookingsRepository: BookingsRepository) {
+class GetBookingById(private val bookingRepository: BookingRepository) {
     fun execute(id: String): Booking {
-        return bookingsRepository.findById(id)
+        return bookingRepository.findById(id)
     }
 
 }

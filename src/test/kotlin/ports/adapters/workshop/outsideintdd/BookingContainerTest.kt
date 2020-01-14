@@ -14,13 +14,14 @@ import org.springframework.http.HttpStatus
 import org.springframework.test.annotation.DirtiesContext
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 import ports.adapters.workshop.outsideintdd.bookings.domain.Price
+import java.time.Instant
 
 @SpringBootTest(
         classes = [OutsideInTddApplication::class],
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-class BookingsContainerTest {
+class BookingContainerTest {
     @LocalServerPort
     private val port: Int = 0
 
@@ -38,7 +39,7 @@ class BookingsContainerTest {
             get("/api/v1/bookings/{id}")
         } Then {
             val id = "1234"
-            val startDate = "04-01-2019T09:00"
+            val startDate = Instant.now()
             val vehicleId = "123"
             val userId = "9802"
             val value = 30
