@@ -40,5 +40,4 @@ internal class BookingsControllerTest {
         assertThat(bookingsController.getBookingById(id)).isEqualTo(expectedBooking)
     }
 
-
 }

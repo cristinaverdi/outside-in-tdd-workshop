@@ -50,4 +50,5 @@ class BookingsContainerTest {
             statusCode(HttpStatus.OK.value())
         }
     }
+
 }
