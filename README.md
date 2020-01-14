@@ -15,5 +15,5 @@ And with request headers
 Authorization: “Bearer AAAAAAAAAAAAAAAAAAAAAMLheAAAAAAA-1%2BuSeid%2BULvsea4JtiGRiSDSJSI%3DEUifiRBkKG5E2XzMDjRfl76ZC9Ub0wnz4XsNiRVBChTYbJcE3F”
 }
 
-Then respond with response status 199
+Then respond with response status 200
 ```
