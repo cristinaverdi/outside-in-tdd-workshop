@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component
 import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 import ports.adapters.workshop.outsideintdd.bookings.domain.Price
 import ports.adapters.workshop.outsideintdd.bookings.interaction.BookingRepository
+import java.lang.RuntimeException
 import java.time.Instant
 
 @Component
@@ -13,9 +14,7 @@ class H2BookingRepository(
 ): BookingRepository {
 
     override fun findById(id: String): Booking {
-        val jpaBooking = bookingsSpringDataRepository.findById(id).get()
-        bookingMapper.toDomain(jpaBooking)
-
-        return Booking("", Instant.now(), "", "", Price(2, ""))
+        val jpaBooking = bookingsSpringDataRepository.findById(id).orElseThrow { RuntimeException() }
+        return bookingMapper.toDomain(jpaBooking)
     }
 }
