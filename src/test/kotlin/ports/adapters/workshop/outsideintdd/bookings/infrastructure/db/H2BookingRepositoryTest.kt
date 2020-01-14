@@ -13,7 +13,7 @@ import java.util.*
 internal class H2BookingRepositoryTest {
     @Test
     fun `delegate to find a user by id to spring data repository`() {
-        val bookingsSpringDataRepository = mockk<BookingsSpringDataRepository>(relaxed = true)
+        val bookingsSpringDataRepository = mockk<BookingSpringDataRepository>(relaxed = true)
         val id = "q12"
         val bookingMapper = mockk<BookingMapper>(relaxed = true)
         val h2bookingRepository = H2BookingRepository(bookingsSpringDataRepository, bookingMapper)
@@ -35,7 +35,7 @@ internal class H2BookingRepositoryTest {
         val vehicleId = "567"
         val jpaBooking = JpaBooking(id, startDate, vehicleId, userId)
 
-        val bookingSpringDataRepository = mockk<BookingsSpringDataRepository>()
+        val bookingSpringDataRepository = mockk<BookingSpringDataRepository>()
         val h2bookingRepository = H2BookingRepository(bookingSpringDataRepository, bookingMapper)
 
         every { bookingSpringDataRepository.findById(id) } returns Optional.of(jpaBooking)
@@ -52,7 +52,7 @@ internal class H2BookingRepositoryTest {
         val expectedBooking = Booking(id, now, "12", "13")
         val jpaBooking = JpaBooking(id, now, "12", "13")
 
-        val bookingsSpringDataRepository = mockk<BookingsSpringDataRepository>(relaxed = true)
+        val bookingsSpringDataRepository = mockk<BookingSpringDataRepository>(relaxed = true)
         val bookingMapper = mockk<BookingMapper>()
 
         every { bookingsSpringDataRepository.findById(id) } returns Optional.of(jpaBooking)
@@ -68,7 +68,7 @@ internal class H2BookingRepositoryTest {
     @Test
     fun `fail when booking not found`() {
         val bookingMapper = mockk<BookingMapper>(relaxed = true)
-        val bookingsSpringDataRepository = mockk<BookingsSpringDataRepository>(relaxed = true)
+        val bookingsSpringDataRepository = mockk<BookingSpringDataRepository>(relaxed = true)
 
         val h2bookingRepository = H2BookingRepository(bookingsSpringDataRepository, bookingMapper)
         val id = ""

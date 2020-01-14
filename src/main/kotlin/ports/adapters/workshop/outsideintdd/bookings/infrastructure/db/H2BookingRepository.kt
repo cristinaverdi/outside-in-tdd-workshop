@@ -6,12 +6,12 @@ import ports.adapters.workshop.outsideintdd.bookings.interaction.BookingReposito
 
 @Component
 class H2BookingRepository(
-        private val bookingsSpringDataRepository: BookingsSpringDataRepository,
+        private val bookingSpringDataRepository: BookingSpringDataRepository,
         private val bookingMapper: BookingMapper
 ): BookingRepository {
 
     override fun findById(id: String): Booking {
-        val jpaBooking = bookingsSpringDataRepository.findById(id).orElseThrow { RuntimeException() }
+        val jpaBooking = bookingSpringDataRepository.findById(id).orElseThrow { RuntimeException() }
         return bookingMapper.toDomain(jpaBooking)
     }
 }
