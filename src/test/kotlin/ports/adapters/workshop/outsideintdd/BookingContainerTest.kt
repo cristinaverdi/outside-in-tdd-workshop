@@ -61,21 +61,6 @@ class BookingContainerTest {
         }
     }
 
-    companion object {
-        private const val booking = """
-            {
-                "id": "abcd",
-                "startDate": "2020-01-15Z",
-                "vehicleId": "123",
-                "userId": "9802",
-                "price": {
-                    "value": 10,
-                    "currency": "EUR"
-                    }
-            }
-        """
-    }
-
 }
 
 
