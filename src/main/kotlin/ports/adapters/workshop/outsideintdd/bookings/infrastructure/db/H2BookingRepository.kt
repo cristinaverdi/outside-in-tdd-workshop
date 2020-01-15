@@ -14,4 +14,7 @@ class H2BookingRepository(
         val jpaBooking = bookingSpringDataRepository.findById(id).orElseThrow { RuntimeException() }
         return bookingMapper.toDomain(jpaBooking)
     }
+
+    override fun findAll(): List<Booking> = bookingSpringDataRepository.findAll().map { bookingMapper.toDomain(it) }
+
 }

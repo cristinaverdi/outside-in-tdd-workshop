@@ -4,5 +4,6 @@ import ports.adapters.workshop.outsideintdd.bookings.domain.Booking
 
 interface BookingRepository {
     fun findById(id: String): Booking
+    fun findAll(): List<Booking>
 
 }
