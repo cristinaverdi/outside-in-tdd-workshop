@@ -8,6 +8,4 @@ data class Booking(
         val vehicleId: String,
         val userId: String,
         val price: Price = Price()
-) {
-
-}
+)
