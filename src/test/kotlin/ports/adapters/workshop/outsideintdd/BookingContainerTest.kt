@@ -1,6 +1,5 @@
 package ports.adapters.workshop.outsideintdd
 
-import com.google.gson.Gson
 import io.restassured.RestAssured
 import io.restassured.module.kotlin.extensions.Given
 import io.restassured.module.kotlin.extensions.Then
@@ -43,7 +42,7 @@ class BookingContainerTest {
     @Test
     fun `get booking by Id`() {
         val id = "abcd"
-        val startDate = Instant.now()
+        val startDate = Instant.parse("2020-01-15T02:31:12.821Z")
         val vehicleId = "123"
         val userId = "9802"
         val booking = Booking(id, startDate, vehicleId, userId)
@@ -58,8 +57,25 @@ class BookingContainerTest {
         } Then {
             statusCode(HttpStatus.OK.value())
             contentType(MediaType.APPLICATION_JSON_VALUE)
-            body(equalTo(Gson().toJson(booking)))
+            body(equalTo(Gson.gson.toJson(booking)))
         }
     }
 
+    companion object {
+        private const val booking = """
+            {
+                "id": "abcd",
+                "startDate": "2020-01-15Z",
+                "vehicleId": "123",
+                "userId": "9802",
+                "price": {
+                    "value": 10,
+                    "currency": "EUR"
+                    }
+            }
+        """
+    }
+
 }
+
+

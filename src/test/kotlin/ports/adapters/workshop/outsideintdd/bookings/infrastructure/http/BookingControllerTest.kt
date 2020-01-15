@@ -1,6 +1,5 @@
 package ports.adapters.workshop.outsideintdd.bookings.infrastructure.http
 
-import com.google.gson.Gson
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -25,16 +24,14 @@ internal class BookingControllerTest {
     }
 
     @Test
-    fun `should respond with a booking in json format when requested`() {
+    fun `return the booking retrieved by GetBookingById`() {
         val getBookingById = mockk<GetBookingById>()
         val getAllBookings = mockk<GetAllBookings>()
         val bookingsController = BookingController(getBookingById, getAllBookings)
         val id = "1234"
-        val booking = Booking(id, Instant.now(), "3345", "00002")
+        val expectedBooking = Booking(id, Instant.now(), "3345", "00002")
 
-        every { getBookingById.execute(id) } returns booking
-
-        val expectedBooking = Gson().toJson(booking)
+        every { getBookingById.execute(id) } returns expectedBooking
 
         assertThat(bookingsController.getBookingById(id)).isEqualTo(expectedBooking)
     }

@@ -6,7 +6,8 @@ data class Booking(
         val id: String,
         val startDate: Instant,
         val vehicleId: String,
-        val userId: String
+        val userId: String,
+        val price: Price = Price()
 ) {
-    val price = Price
+
 }
